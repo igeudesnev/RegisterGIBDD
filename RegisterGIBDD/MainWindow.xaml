@@ -1,4 +1,4 @@
-﻿<Window x:Class="RegisterGIBDD.MainWindow"
+﻿<Window x:Name="RegisterGIBDD" x:Class="RegisterGIBDD.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button x:Name="buttonDriverslist" Content="Список водителей" HorizontalAlignment="Left" Margin="40,40,40,40" VerticalAlignment="Top" Width="140" Height="60"/>
+
     </Grid>
 </Window>

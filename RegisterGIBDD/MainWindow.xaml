@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegisterGIBDD"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Button x:Name="buttonDriverslist" Content="Список водителей" HorizontalAlignment="Left" Margin="40,40,40,40" VerticalAlignment="Top" Width="140" Height="60"/>
+        Title="GIBDDRegister" Height="546.512" Width="647.287">
+    <Grid Height="516" VerticalAlignment="Top">
+        <Button x:Name="buttonAdding" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="140" Height="60" Click="buttonAdding_Click"/>
+        <ListBox x:Name="listBoxDrivers" HorizontalAlignment="Stretch" Height="456" VerticalAlignment="Stretch" Width="639" Margin="0,0,0,60"/>
 
     </Grid>
 </Window>

@@ -23,6 +23,22 @@ namespace RegisterGIBDD
         public MainWindow()
         {
             InitializeComponent();
+            RefreshListBox();
         }
+
+        List<Driver> _drivers = new List<Driver>();
+
+        private void buttonAdding_Click(object sender, RoutedEventArgs e)
+        {
+            AddingDriver addingdriver = new AddingDriver();
+            addingdriver.ShowDialog();            
+        }
+
+        private void RefreshListBox()
+        {
+            listBoxDrivers.ItemsSource = null;
+            listBoxDrivers.ItemsSource = _drivers;
+        }
+
     }
 }

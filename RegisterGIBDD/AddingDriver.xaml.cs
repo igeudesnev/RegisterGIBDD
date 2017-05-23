@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+
 
 namespace RegisterGIBDD
 {
@@ -20,48 +23,64 @@ namespace RegisterGIBDD
     /// </summary>
     public partial class AddingDriver : Window
     {
-        List<Driver> _drivers = new List<Driver>();
+        DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<Driver>));
 
         public AddingDriver()
         {
             InitializeComponent();
-        }
+        }        
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxSurname.Text) != true)
+            if (string.IsNullOrWhiteSpace(textBoxSurname.Text) != true &&
+                string.IsNullOrWhiteSpace(textBoxName.Text) != true &&
+                string.IsNullOrWhiteSpace(textBoxDrivinglicense.Text) != true)
             {
-                if (string.IsNullOrWhiteSpace(textBoxName.Text) != true)
-                {
-                    if (string.IsNullOrWhiteSpace(textBoxDrivinglicense.Text) != true)
+                uint check = 0;
+                    for (int i = 0; i < textBoxSurname.Text.Length; i++)
                     {
-                        Driver driver = new Driver(textBoxSurname.Text, textBoxName.Text, textBoxDrivinglicense.Text);
-                        _drivers.Add(driver);
-                        using(FileStream fs = new FileStream("drivers.txt", FileMode.OpenOrCreate))
+                        if (textBoxSurname.Text[i] == '$')
                         {
-                            using(StreamWriter sw = new StreamWriter(fs, Encoding.GetEncoding(1251)))
-                            {
-                                sw.Write(_drivers[0].Show(textBoxSurname.Text, textBoxName.Text, textBoxDrivinglicense.Text));
-                            }
+                            textBoxSurname.Text = null;
+                            check += 1;
+                            break;
                         }
                     }
-                    else
+                    for (int i = 0; i < textBoxName.Text.Length; i++)
                     {
-                        MessageBox.Show("Необходимо ввести номер водительского удостоверения");
-                        textBoxDrivinglicense.Focus();
+                        if (textBoxName.Text[i] == '$')
+                        {
+                            textBoxName.Text = null;
+                            check += 1;
+                            break;
+                        }
                     }
+                    for (int i = 0; i < textBoxDrivinglicense.Text.Length; i++)
+                    {
+                        if (textBoxDrivinglicense.Text[i] == '$')
+                        {
+                            textBoxDrivinglicense.Text = null;
+                            check += 1;
+                            break;
+                        }
+                    }
+                if (check == 0)
+                {
+                    Driver driver = new Driver(textBoxSurname.Text, textBoxName.Text, textBoxDrivinglicense.Text);
+                    MainWindow._drivers.Add(driver);
+                    using (FileStream fs = new FileStream("drivers.txt", FileMode.OpenOrCreate, FileAccess.Write))
+                    {
+                        jsonFormatter.WriteObject(fs, MainWindow._drivers);
+                    }
+                    MessageBox.Show("CHPKAWO");
                 }
                 else
                 {
-                    MessageBox.Show("Необходимо ввести имя водителя");
-                    textBoxName.Focus();
+                    MessageBox.Show("Были использованы недопустимые знаки.");
                 }
+                DialogResult = true;
             }
-            else
-            {
-                MessageBox.Show("Необходимо ввести фамилию");
-                textBoxSurname.Focus();
-            }
+            else { MessageBox.Show("Поля не должны быть пустыми"); }
         }
     }
 }

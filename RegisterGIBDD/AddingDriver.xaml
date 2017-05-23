@@ -5,15 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegisterGIBDD"
         mc:Ignorable="d"
-        Title="AddingDriver" Height="300" Width="300">
-    <Grid Margin="0,0,0,0">
-        <TextBox x:Name="textBoxSurname" HorizontalAlignment="Left" Height="23" Margin="162,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="162,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxDrivinglicense" HorizontalAlignment="Left" Height="23" Margin="162,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        Title="AddingDriver" Height="300" Width="400">
+    <Grid Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TextBox x:Name="textBoxSurname" HorizontalAlignment="Left" Height="23" Margin="200,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" Margin="200,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+        <TextBox x:Name="textBoxDrivinglicense" HorizontalAlignment="Left" Height="23" Margin="200,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
         <Label x:Name="labelSurname" Content="Фамилия" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelName" Content="Имя" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelDrivinglicense" Content="Номер водительского &#xD;&#xA;удостоверения" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Height="50" Width="135"/>
-        <Button x:Name="buttonAdd" Content="Добавить" Margin="90,169,82,0" VerticalAlignment="Top" Height="40" Click="buttonAdd_Click"/>
+        <Button x:Name="buttonAdd" Content="Добавить" Margin="10,219,247,0" VerticalAlignment="Top" Height="40" Click="buttonAdd_Click"/>
+        <Button x:Name="button" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="33" Margin="150,141,0,0" Height="23"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="200,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+        <Label x:Name="label" Content="Добавить автомобиль &#xD;&#xA;во владении" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="200,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="200,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
 
     </Grid>
 </Window>

@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 
 namespace RegisterGIBDD
-{
-    class Driver
+{   [DataContract]
+   public  class Driver
     {
         private string _surname;
-
+        [DataMember]
         public string Surname
         {
             get { return _surname; }
@@ -17,7 +19,7 @@ namespace RegisterGIBDD
         }
 
         private string _name;
-
+        [DataMember]
         public string Name
         {
             get { return _name; }
@@ -25,7 +27,7 @@ namespace RegisterGIBDD
         }
 
         private string _drivinglicensenumber;
-
+        [DataMember]
         public string Drivinglicensenumber
         {
             get { return _drivinglicensenumber; }
@@ -33,7 +35,7 @@ namespace RegisterGIBDD
         }
 
         private string _car1;
-
+        [DataMember]
         public string Car1
         {
             get { return _car1; }
@@ -41,7 +43,7 @@ namespace RegisterGIBDD
         }
 
         private string _car2;
-
+        [DataMember]
         public string Car2
         {
             get { return _car2; }
@@ -49,7 +51,7 @@ namespace RegisterGIBDD
         }
 
         private string _car3;
-
+        [DataMember]
         public string Car3
         {
             get { return _car3; }
@@ -84,7 +86,7 @@ namespace RegisterGIBDD
 
         public string Show(string surname, string name, string drivinglicensenumber)
         {
-            return string.Format("{0}<>{1}<>{2}\n", surname, name, drivinglicensenumber);
+            return string.Format("{0}${1}${2}", surname, name, drivinglicensenumber);
         }
     }
 }

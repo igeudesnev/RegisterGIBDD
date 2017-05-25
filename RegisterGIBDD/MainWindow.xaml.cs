@@ -96,6 +96,12 @@ namespace RegisterGIBDD
                 editingdriver.ShowDialog();
             }            
             ListToFileAndGrid();
+            Driver._auxSurname = null;
+            Driver._auxName = null;
+            Driver._auxDrivingLicenseNumber = 0;
+            Driver._auxCar1 = null;
+            Driver._auxCar2 = null;
+            Driver._auxCar3 = null;
         }
     }
 }

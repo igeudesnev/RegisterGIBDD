@@ -34,7 +34,7 @@ namespace RegisterGIBDD
         {
 
             try
-            {
+            {                
                 if (string.IsNullOrWhiteSpace(textBoxSurname.Text) != true &&
                     string.IsNullOrWhiteSpace(textBoxName.Text) != true &&
                     string.IsNullOrWhiteSpace(textBoxDrivinglicense.Text) != true)
@@ -43,12 +43,12 @@ namespace RegisterGIBDD
                     Driver driver = new Driver(textBoxSurname.Text, textBoxName.Text, int.Parse(textBoxDrivinglicense.Text),
                         textBoxCar1.Text, textBoxCar2.Text, textBoxCar3.Text);
                     MainWindow._drivers.Add(driver);
-                    MessageBox.Show("Saved");                    
+                    MessageBox.Show("Saved");
+                    Close();         
                 }
                 else { MessageBox.Show("Fields should not be empty"); }
             }
-            catch { MessageBox.Show("Data entered incorrectly"); }
-            Close();
+            catch { MessageBox.Show("Data entered incorrectly"); }            
         }
 
         private void Window_Closed(object sender, EventArgs e)

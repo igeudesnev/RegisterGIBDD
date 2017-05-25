@@ -26,12 +26,12 @@ namespace RegisterGIBDD
             set { _name = value; }
         }
 
-        private string _drivinglicensenumber;
+        private int _drivingLicenseNumber;
         [DataMember]
-        public string Drivinglicensenumber
+        public int DrivingLicenseNumber
         {
-            get { return _drivinglicensenumber; }
-            set { _drivinglicensenumber = value; }
+            get { return _drivingLicenseNumber; }
+            set { _drivingLicenseNumber = value; }
         }
 
         private string _car1;
@@ -59,34 +59,36 @@ namespace RegisterGIBDD
         }
 
 
-        public Driver(string surname, string name, string drivinglicensenumber)
+        public Driver(string surname, string name, int drivingLicenseNumber)
         {
             _surname = surname;
             _name = name;
-            _drivinglicensenumber = drivinglicensenumber;
+            _drivingLicenseNumber = drivingLicenseNumber;
         }
 
-        public Driver(string surname, string name, string drivinglicensenumber, string car1)
-            : this(surname, name, drivinglicensenumber)
+        public Driver(string surname, string name, int drivingLicenseNumber, string car1)
+            : this(surname, name, drivingLicenseNumber)
         {
             _car1 = car1;
         }
 
-        public Driver(string surname, string name, string drivinglicensenumber, string car1, string car2)
-            : this(surname, name, drivinglicensenumber, car1)
+        public Driver(string surname, string name, int drivingLicenseNumber, string car1, string car2)
+            : this(surname, name, drivingLicenseNumber, car1)
         {
             _car2 = car2;
         }
 
-        public Driver(string surname, string name, string drivinglicensenumber, string car1, string car2, string car3)
-            : this(surname, name, drivinglicensenumber, car1, car2)
+        public Driver(string surname, string name, int drivingLicenseNumber, string car1, string car2, string car3)
+            : this(surname, name, drivingLicenseNumber, car1, car2)
         {
             _car3 = car3;
         }
 
-        public string Show(string surname, string name, string drivinglicensenumber)
-        {
-            return string.Format("{0}${1}${2}", surname, name, drivinglicensenumber);
-        }
+        public static string _auxSurname;
+        public static string _auxName;
+        public static int _auxDrivingLicenseNumber;
+        public static string _auxCar1;
+        public static string _auxCar2;
+        public static string _auxCar3;
     }
 }

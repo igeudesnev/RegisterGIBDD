@@ -11,27 +11,28 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
-
 
 namespace RegisterGIBDD
 {
     /// <summary>
-    /// Interaction logic for AddingDriver.xaml
+    /// Interaction logic for WindowEditing.xaml
     /// </summary>
-    public partial class AddingDriver : Window
+    public partial class WindowEditing : Window
     {
-        DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<Driver>));
-
-        public AddingDriver()
+        public WindowEditing()
         {
             InitializeComponent();
-        }        
+            textBoxSurname.Text = Driver._auxSurname;
+            textBoxName.Text = Driver._auxName;
+            textBoxDrivinglicense.Text = Driver._auxDrivingLicenseNumber.ToString();
+            textBoxCar1.Text = Driver._auxCar1;
+            textBoxCar2.Text = Driver._auxCar2;
+            textBoxCar3.Text = Driver._auxCar3;
+        }
 
-        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
+
             try
             {
                 if (string.IsNullOrWhiteSpace(textBoxSurname.Text) != true &&
@@ -42,13 +43,20 @@ namespace RegisterGIBDD
                     Driver driver = new Driver(textBoxSurname.Text, textBoxName.Text, int.Parse(textBoxDrivinglicense.Text),
                         textBoxCar1.Text, textBoxCar2.Text, textBoxCar3.Text);
                     MainWindow._drivers.Add(driver);
-                    MessageBox.Show("Saved");
-                    
+                    MessageBox.Show("Saved");                    
                 }
                 else { MessageBox.Show("Fields should not be empty"); }
             }
             catch { MessageBox.Show("Data entered incorrectly"); }
             Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Driver driver = new Driver(Driver._auxSurname, Driver._auxName, Driver._auxDrivingLicenseNumber,
+                       Driver._auxCar1, Driver._auxCar2, Driver._auxCar3);
+            MainWindow._drivers.Add(driver);
+            MessageBox.Show("Previous version returned");
         }
     }
 }

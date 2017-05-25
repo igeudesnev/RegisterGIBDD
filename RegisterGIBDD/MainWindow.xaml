@@ -6,16 +6,11 @@
         xmlns:local="clr-namespace:RegisterGIBDD"
         mc:Ignorable="d"
         Title="GIBDDRegister" Height="550" Width="650">
-    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        <Button x:Name="buttonAdding" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="140" Height="60" Click="buttonAdding_Click" Margin="2,0,0,1"/>
-        <ListBox x:Name="listBoxDrivers" HorizontalAlignment="Stretch" Height="456" VerticalAlignment="Stretch" Width="639" Margin="0,0,0,60"/>
-        <Button x:Name="buttonRefresh" Content="" HorizontalAlignment="Left" Margin="582,459,0,0" VerticalAlignment="Top" Width="58" Height="59" Click="button_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/refresh_icon.png"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="buttonDelete" Content="Удалить&#xD;&#xA;выделенный элемент" HorizontalAlignment="Stretch" Margin="142,458,360,0" VerticalAlignment="Top" Width="140" Height="60" Click="buttonDelete_Click"/>
-        <Button x:Name="buttonEdit" Content="Редактировать &#xD;&#xA;выделенный элемент" HorizontalAlignment="Left" Margin="282,458,0,0" VerticalAlignment="Top" Width="140" Height="60" Click="button2_Click"/>
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0,2,0">
+        <Button x:Name="buttonAdding" Content="Add" HorizontalAlignment="Right" VerticalAlignment="Top" Width="140" Height="60" Click="buttonAdding_Click" Margin="0,10,10,0"/>
+        <Button x:Name="buttonDelete" Content="Delete chosen element" HorizontalAlignment="Right" Margin="0,140,10,0" VerticalAlignment="Top" Width="140" Height="60" Click="buttonDelete_Click" RenderTransformOrigin="0.539,0.775"/>
+        <Button x:Name="buttonEdit" Content="Edit chosen element" HorizontalAlignment="Right" Margin="0,75,10,0" VerticalAlignment="Top" Width="140" Height="60" Click="buttonEdit_Click"/>
+        <DataGrid x:Name="dataGridDrivers" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,155,10"/>
 
     </Grid>
 </Window>

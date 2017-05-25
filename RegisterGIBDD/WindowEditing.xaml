@@ -1,0 +1,26 @@
+﻿<Window x:Class="RegisterGIBDD.WindowEditing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RegisterGIBDD"
+        mc:Ignorable="d"
+        Title="WindowEditing" Height="320" Width="450" Closed="Window_Closed">
+    <Grid>
+        <Grid Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBox x:Name="textBoxSurname" Margin="200,10,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+            <TextBox x:Name="textBoxName" Margin="200,50,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+            <TextBox x:Name="textBoxDrivinglicense" Margin="200,90,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+            <Label x:Name="labelSurname" Content="Surname*" Margin="10,10,247,244"/>
+            <Label x:Name="labelName" Content="Name*" Margin="10,50,247,204"/>
+            <Label x:Name="labelDrivinglicense" Content="Driving license number*" Margin="10,90,247,157"/>
+            <Button x:Name="buttonSave" Content="Save" Margin="10,239,0,0" Click="buttonSave_Click" Height="40" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="textBoxCar1" Margin="200,135,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+            <Label x:Name="labelPlusCar" Content="Add a car in ownership(3max)" Margin="10,132,247,116"/>
+            <TextBox x:Name="textBoxCar2" Margin="200,163,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+            <TextBox x:Name="textBoxCar3" Margin="200,191,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+            <Label x:Name="labelInfo" Content="*These fields must be filled in" Margin="200,246,10,10"/>
+
+        </Grid>
+    </Grid>
+</Window>

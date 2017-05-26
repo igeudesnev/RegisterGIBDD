@@ -83,25 +83,13 @@ namespace RegisterGIBDD
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)
         {
-            WindowEditing editingdriver = new WindowEditing();
             int index = dataGridDrivers.SelectedIndex;
-            if (index != -1) {
-                Driver._auxSurname = _drivers[index].Surname;
-                Driver._auxName = _drivers[index].Name;
-                Driver._auxDrivingLicenseNumber = _drivers[index].DrivingLicenseNumber;
-                Driver._auxCar1 = _drivers[index].Car1;
-                Driver._auxCar2 = _drivers[index].Car2;
-                Driver._auxCar3 = _drivers[index].Car3;
-                _drivers.RemoveAt(index);
+            WindowEditing editingdriver = new WindowEditing(dataGridDrivers.SelectedItem as Driver, dataGridDrivers.SelectedIndex);
+            if (index != -1)
+            {                
                 editingdriver.ShowDialog();
-            }            
-            ListToFileAndGrid();
-            Driver._auxSurname = null;
-            Driver._auxName = null;
-            Driver._auxDrivingLicenseNumber = 0;
-            Driver._auxCar1 = null;
-            Driver._auxCar2 = null;
-            Driver._auxCar3 = null;
+            }
+            ListToFileAndGrid();            
         }
     }
 }
